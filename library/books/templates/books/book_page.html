@@ -5,12 +5,22 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ book.title }}</h1>
-    <h3>Pages: {{ book.pages }}</h3>
-    <h3>Price: {{ book.price }}</h3>
-    <h3>Genre: {{ book.genre }}</h3>
-    <h3>Year: {{ book.year }}</h3>
-    <h4>Author: {{ book.author.first_name }} {{ book.author.last_name }}</h4>
+    <div class='book-item-container'>
+        <div>
+            <img 
+                class="book-image"
+                src="{{ book.image.url }}" 
+                alt="{{ book.title }}"/>
+        </div>
+        <div>
+            <h1>{{ book.title }}</h1>
+            <h3>Pages: {{ book.pages }}</h3>
+            <h3>Price: {{ book.price }}</h3>
+            <h3>Genre: {{ book.genre }}</h3>
+            <h3>Year: {{ book.year }}</h3>
+            <h4>Author: {{ book.author.first_name }} {{ book.author.last_name }}</h4>
+            <p><a href="{% url 'books:list' %}">Back</a></p>
+        </div>
+    </div>
 
-    <p><a href="{% url 'books:list' %}">Back</a></p>
 {% endblock %}

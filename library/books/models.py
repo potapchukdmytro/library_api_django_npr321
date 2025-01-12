@@ -20,3 +20,4 @@ class Book(models.Model):
     genre = models.CharField(max_length=50)
     year = models.IntegerField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
+    image = models.ImageField(blank=True, default='book_default.jpg')
