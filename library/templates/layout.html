@@ -15,10 +15,19 @@
         </title>
     </head>
     <body>
-        <nav>
-            <a href="/">🏠</a> |
-            <a href="/about">📔</a> |
-            <a href="{% url 'books:list' %}">📚</a>
+        <nav class="nav-container">
+            <div>
+                <a href="/">🏠</a> |
+                <a href="/about">📔</a> |
+                <a href="{% url 'books:list' %}">📚</a>
+            </div>
+            <div>
+                <a  
+                    style="color: white; font-size: 0.7em;"
+                    href="{% url 'users:register' %}">
+                Register</a>
+            </div>    
+            
         </nav>
         <main>
             {% block content %}

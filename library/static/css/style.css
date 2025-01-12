@@ -110,3 +110,8 @@ a:hover {
 .book-item-container {
     display: flex;
 }
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+}
