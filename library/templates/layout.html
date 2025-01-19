@@ -19,13 +19,27 @@
             <div>
                 <a href="/">🏠</a> |
                 <a href="/about">📔</a> |
-                <a href="{% url 'books:list' %}">📚</a>
+                <a href="{% url 'books:list' %}">📚</a> |
+                {% if user.is_authenticated %}
+                    <a href="{% url 'books:new-book' %}">➕</a> |
+                {% endif %}
             </div>
             <div>
-                <a  
-                    style="color: white; font-size: 0.7em;"
-                    href="{% url 'users:register' %}">
-                Register</a>
+                {% if not user.is_authenticated %}
+                    <a  
+                        class="nav-auth"
+                        href="{% url 'users:login' %}">
+                    Login</a>
+                    <a  
+                        class="nav-auth"
+                        href="{% url 'users:register' %}">
+                    Register</a>
+                {% else %}
+                    <form class="logout" action="{% url 'users:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="logout-button nav-auth">Logout</button>
+                    </form>
+                {% endif %}
             </div>    
             
         </nav>
